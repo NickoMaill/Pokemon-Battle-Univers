@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Switch } from "react-router-dom/cjs/react-router-
 
 export default function App() {
 
+  const [gameNews, setGamesNews] = useState([])
+
   //App routing
 
   return (
