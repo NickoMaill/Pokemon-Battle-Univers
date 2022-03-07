@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Demonized';
+    src: url(../assets/Font/Demonized/Demonized.ttf);
+}
+
+.nav-div {
+    display: flex;
+    flex-direction: column;
+    background-color: #2C75B5;
+
+}
+
+.title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-div{
+    width: 23rem;
+}
+
+.header-bottom{
+    margin-top: 0rem;
+}
+
+.title-header{
+    font-family: 'Demonized';
+    font-weight: 100;
+    color: #FDCC02;
+}
+
+.logo {
+    width: 14rem;
+    height: 5rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-logo{
+    width: 5rem;
+}
+
+.link-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid darkgray 2px;
+    background-color: #fff;
+    border-radius: 1rem;
+    text-decoration: none;
+    padding: 0.5rem;
+    margin-inline: 1rem;
+    margin-bottom: 1rem;
+    width: 10rem;
+    transition: 200ms;
+    &:hover {
+        background-color: #FDCC02;
+        border: solid #FDCC02 2px;
+        -ms-transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    &:active {
+        background-color: darkgray;
+        border: solid darkgray 2px;
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+i {
+    img {
+        width: 2rem;
+        margin-top: 0.6rem;
+    }
+
+    .pokedex {
+        height: 33px;
+    }
+
+    .pokeball {
+        height: 34px;
+        width: 34px;
+    }
+
+    .card-icon {
+        height: 35px;
+    }
+
+    .red-hat {
+        height: 35px;
+        width: 35px;
+    }
+}
+
+.link {
+    text-decoration: none;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: black;
+}
+
+.img-container{
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    line-height: normal;
+    
+}

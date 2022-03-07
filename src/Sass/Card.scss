@@ -1,0 +1,207 @@
+@mixin typeTheme($color, $backColor) {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-width: 10px;
+    border-color: $color;
+    background-color: $backColor;
+    width: 40rem;
+    height: 40rem;
+}
+
+.poke-card-ground {
+    @include typeTheme(rgb(183, 150, 60), rgba(183, 150, 60, 0.5));
+}
+
+.poke-card-electric {
+    @include typeTheme(rgb(239, 163, 11), rgba(239, 163, 11, 0.5));
+}
+
+.poke-card-bug {
+    @include typeTheme(rgb(161, 176, 25), rgba(161, 176, 25, 0.5));
+}
+
+.poke-card-dark {
+    @include typeTheme(rgb(81, 60, 47), rgba(81, 60, 47, 0.5));
+}
+
+.poke-card-dragon {
+    @include typeTheme(rgb(117, 93, 221), rgba(117, 93, 221, 0.5));
+}
+
+.poke-card-fairy {
+    @include typeTheme(rgb(242, 172, 242), rgba(242, 172, 242, 0.5));
+}
+
+.poke-card-fighting {
+    @include typeTheme(rgb(126, 51, 28), rgba(126, 51, 28, 0.5));
+}
+
+.poke-card-fire {
+    @include typeTheme(rgb(218, 48, 5), rgba(218, 48, 5, 0.5));
+}
+
+.poke-card-flying {
+    @include typeTheme(rgb(145, 164, 242), rgba(145, 164, 242, 0.5));
+}
+
+.poke-card-ghost {
+    @include typeTheme(rgb(87, 87, 167), rgba(87, 87, 167, 0.5));
+}
+
+.poke-card-grass {
+    @include typeTheme(rgb(109, 190, 48), rgba(109, 190, 48, 0.5));
+}
+
+.poke-card-ice {
+    @include typeTheme(rgb(163, 231, 253), rgba(163, 231, 253, 0.5));
+}
+
+.poke-card-normal {
+    @include typeTheme(rgb(203, 199, 191), rgba(203, 199, 191, 0.5));
+}
+
+.poke-card-poison {
+    @include typeTheme(rgb(107, 36, 110), rgba(107, 36, 110, 0.5));
+}
+
+.poke-card-psychic {
+    @include typeTheme(rgb(220, 49, 101), rgba(220, 49, 101, 0.5));
+}
+
+.poke-card-rock {
+    @include typeTheme(rgb(179, 155, 80), rgba(179, 155, 80, 0.5));
+}
+
+.poke-card-steel {
+    @include typeTheme(rgb(184, 184, 198), rgba(184, 184, 198, 0.5));
+}
+
+.poke-card-water {
+    @include typeTheme(rgb(52, 150, 248), rgba(52, 150, 248, 0.5));
+}
+
+.title-div{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2rem;
+    border: solid rgba(0, 0, 0, 0.536);
+}
+
+.sprites-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.default-sprites{
+    width: 10rem;
+}
+
+.team-button{
+    border: none;
+    background-color: transparent;
+}
+
+.team-icon{
+    width: 2rem;
+    transition-duration: 300ms, 300ms;
+    &:hover{
+        width: 2.1rem;
+    }
+    &:active{
+        width: 1.8rem;
+    }
+}
+
+.no-added{
+    filter: grayscale(1);
+}
+
+.card-content{
+    overflow-y: scroll;
+    height: 30rem;
+}
+
+.type-ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content:space-around ;
+    
+    li {
+        list-style: none;
+    }
+}
+
+.sprites {
+    width: 10rem;
+}
+
+.stats-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+.stats-list-div{
+    display: flex;
+    justify-content: center;
+}
+
+.stats-list{
+    list-style: none;
+
+    li{
+        text-transform: capitalize;
+        padding: 0.2rem;
+        margin-right: 2rem;
+        text-align: center;
+    }
+}
+
+.area-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.area-list-div{
+    width: 80%;
+    overflow-y: scroll;
+    height: 5rem;
+}
+
+.area-list{
+    // list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    li{
+        margin-bottom: 5px;
+        margin-left: 3rem;
+        margin-right: 3rem;
+    }
+}
+
+.types-img {
+    width: 4rem;
+}
+
+h2 {
+    text-transform: capitalize;
+    margin: 0;
+}
+
+h4{
+    text-align: center;
+}
+
+figure{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
