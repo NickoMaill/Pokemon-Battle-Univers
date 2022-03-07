@@ -1,11 +1,30 @@
 //MODULE IMPORT
-import { BrowserRouter, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
+import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Context } from "./Context/AppContext";
+
+//VIEWS IMPORT
+import Home from "./Views/Home";
+import Login from "./Views/Login";
+import Pokedex from "./Views/Pokedex";
+import Team from "./Views/Team";
+import Battle from "./Views/Battle";
+
+//COMPONENTS IMPORT
+import Header from "./Components/Header";
+import Footer from "./Components/Header";
 
 //Main App function
 
 export default function App() {
 
-  const [gameNews, setGamesNews] = useState([])
+  const [gameNews, setGamesNews] = useState([]);
+
+  const value = {
+    gameNews,
+    setGamesNews,
+
+  };
 
   //App routing
 
@@ -17,13 +36,13 @@ export default function App() {
 
         <Header />
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/pokedex" component={Pokedex} />
-          <Route exact path="/your-team" component={Team} />
-          <Route exact path="/battle" component={Battle} />
-          <Route exact path="/login" component={Login} />
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/pokedex" element={<Pokedex />} />
+          <Route exact path="/your-team" element={<Team />} />
+          <Route exact path="/battle" element={<Battle />} />
+          <Route exact path="/login" element={<Login />} />
+        </Routes>
 
         <Footer />
 
@@ -33,4 +52,4 @@ export default function App() {
     </Context.Provider>
 
   );
-}
+};
