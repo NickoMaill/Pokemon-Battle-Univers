@@ -8,7 +8,7 @@ export default function Card() {
 
     const [_teamClass, setTeamClass] = useState("no-added")
 
-    const catcheEmAll = () => {
+    const catchEmAll = () => {
 
         if (stateContext.team.includes(stateContext.currentPokemon.id)) {
             let tempTeam = stateContext.team;
@@ -85,7 +85,7 @@ export default function Card() {
                 </div>
 
                 <button
-                    onClick={catcheEmAll}
+                    onClick={catchEmAll}
                     className="team-button"
                 >
                     <img className={`team-icon ${!stateContext.team.includes(stateContext.currentPokemon.id) && "no-added"}`} 
