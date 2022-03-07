@@ -1,3 +1,5 @@
+import fetchNews from "../Utils/fetchNews";
+
 export default function Home() {
 
     //Home Content

@@ -1,9 +1,5 @@
 //MODULE IMPORT
 import { BrowserRouter, Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
-import { createContext } from "react";
-import { Context } from "../src/Context/NewsContext";
-
-export const UserContext = createContext(false);
 
 //Main App function
 
