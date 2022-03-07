@@ -20,10 +20,10 @@ Pour faire fonctionner cette application, vous aurez besoin de votre navigateur 
 Librairies Javascript : 
 
 * [ReactJS](https://reactjs.org/) - crée des interfaces utilisateurs
-* [DayJs](https://atom.io/) - récupère la date et l'heure
-* [React-Modal](https://atom.io/) - crée une modal  
-* [React-Toastify](https://atom.io/) - génère des notifications   
-* [React-hook-form](https://atom.io/) - facilite la création de formulaire   
+* [DayJs](https://day.js.org/) - récupère la date et l'heure
+* [React-Modal](https://github.com/reactjs/react-modal) - crée une modal  
+* [React-Toastify](https://github.com/fkhadra/react-toastify#readme) - génère des notifications   
+* [React-hook-form](https://www.react-hook-form.com/) - facilite la création de formulaire   
 
 ## Auteurs
 Listez le(s) auteur(s) du projet ici !
