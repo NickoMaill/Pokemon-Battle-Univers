@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { Context } from "../Context/NewsContext";
+import { Context } from "../Context/AppContext";
 import idFormat from "../Utils/idFormat";
 import MineCard from "../Components/MinCard"
 import fetchListPokemon from "../Utils/fetchListPokemon";

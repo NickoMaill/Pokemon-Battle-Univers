@@ -1,6 +1,6 @@
 //MODULE IMPORT
 import { useState, useContext, useEffect } from "react";
-import { Context } from "../Context/NewsContext";
+import { Context } from "../Context/AppContext";
 
 //COMPONENTS IMPORT
 import MineCard from "../Components/MinCard";
@@ -64,8 +64,8 @@ export default function Pokedex() {
 
                 <div className="pokedex-wrapper">
 
-                    {isLoaded ? stateContext.pokemon.map((pokemon, i) => {
-
+                    {isLoaded ? stateContext.pokemon.map((_pokemon, i) => {
+                        
                         if (i === 0 || i <= stateContext.pokemon.length) {
                             return (
                                 <MineCard

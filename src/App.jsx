@@ -1,7 +1,7 @@
 //MODULE IMPORT
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, createContext } from "react";
-import { Context } from "../src/Context/NewsContext";
+import { Context } from "../src/Context/AppContext";
 
 //COMPONENTS IMPORT
 import Home from './Views/Home';

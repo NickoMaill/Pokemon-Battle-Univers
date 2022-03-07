@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import "../Sass/Header.scss"
 import UserResume from "./UserResume";
+import "../Sass/Header.scss"
 
 export default function Header() {
     return (

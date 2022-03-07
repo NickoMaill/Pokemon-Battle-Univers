@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Context } from "../Context/NewsContext";
+import { Context } from "../Context/AppContext";
 
 import "../Sass/UserResume.scss"
 
@@ -12,7 +12,7 @@ export default function UserResume() {
 
             <div className="user-div">
 
-                <img className="user-img" src={require("../assets/images/heUser.webp")} />
+                <img className="user-img" src={require("../assets/images/heUser.webp")} alt="user icon" />
                 <p><strong>{stateContext.userName}</strong></p>
 
                 <div className="user-stock">

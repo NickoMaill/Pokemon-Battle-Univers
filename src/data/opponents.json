@@ -1,0 +1,205 @@
+{
+    "champion": [
+        {
+            "name": "Pierre",
+            "sprite":"../assets/images/opponents-sprites/Pierre.webp",
+            "teamId": [
+                76,
+                141,
+                369,
+                409,
+                139,
+                95
+            ],
+            "type": "rock",
+            "price": 1386
+        },
+        {
+            "name": "Ondine",
+            "sprite":"../assets/images/opponents-sprites/Ondine.webp",
+            "teamId": [
+                121,
+                171,
+                419,
+                195,
+                131,
+                350
+            ],
+            "type": "water",
+            "price": 2079
+        },
+        {
+            "name": "Major Bob",
+            "sprite":"../assets/images/opponents-sprites/Major Bob.webp",
+            "teamId": [
+                26,
+                101,
+                462,
+                310,
+                466,
+                417
+            ],
+            "type": "electric",
+            "price": 2376
+        },
+        {
+            "name": "Erika",
+            "sprite":"../assets/images/opponents-sprites/Erika.webp",
+            "teamId": [
+                275,
+                189,
+                71,
+                407,
+                465,
+                182
+            ],
+            "type": "grass",
+            "price": 2871
+        },
+        {
+            "name": "Koga",
+            "sprite":"../assets/images/opponents-sprites/Koga.webp",
+            "teamId": [
+                435,
+                169,
+                454,
+                317,
+                49,
+                89
+            ],
+            "type": "poison",
+            "price": 2913
+        },
+        {
+            "name": "Morgane",
+            "sprite":"../assets/images/opponents-sprites/Morgane.webp",
+            "teamId": [
+                196,
+                202,
+                475,
+                65,
+                124,
+                122
+            ],
+            "type": "psy",
+            "price": 3000
+        },
+        {
+            "name": "Auguste",
+            "sprite":"../assets/images/opponents-sprites/Auguste.webp",
+            "teamId": [
+                324,
+                219,
+                323,
+                467,
+                78,
+                229
+            ],
+            "type": "fire",
+            "price": 3250
+        },
+        {
+            "name": "Giovanni",
+            "sprite":"../assets/images/opponents-sprites/Giovanni.webp",
+            "teamId": [
+                111,
+                34,
+                51,
+                112,
+                31,
+                115
+            ],
+            "type": "normal",
+            "price": 3890
+        }
+    ],
+    "4Heads": [
+        {
+            "name": "Olga",
+            "sprite":"../assets/images/opponents-sprites/Olga.webp",
+            "teamId": [
+                87,
+                91,
+                80,
+                124,
+                28,
+                221,
+                131
+            ],
+            "type": "ice",
+            "price": 5544
+        },
+        {
+            "name": "Aldo",
+            "sprite":"../assets/images/opponents-sprites/Aldo.webp",
+            "teamId": [
+                237,
+                297,
+                107,
+                98,
+                106,
+                448
+            ],
+            "type": "fighting",
+            "price": 5742
+        },
+        {
+            "name": "Agatha",
+            "sprite":"../assets/images/opponents-sprites/Agatha.webp",
+            "teamId": [
+                200,
+                94,
+                169,
+                94,
+                24,
+                93
+            ],
+            "type": "ghost",
+            "price": 5800
+        },
+        {
+            "name": "Peter",
+            "sprite":"../assets/images/opponents-sprites/Peter.webp",
+            "teamId": [
+                373,
+                334,
+                130,
+                6,
+                149,
+                445
+            ],
+            "type": "dragon",
+            "price": 6000
+        }
+    ],
+    "rivals": [
+        {
+            "name": "Red",
+            "sprite":"../assets/images/opponents-sprites/Red.webp",
+            "teamId": [
+                25,
+                3,
+                196,
+                6,
+                143,
+                9
+            ],
+            "type": "unknown",
+            "price": 7700
+        },
+        {
+            "name": "Blue",
+            "sprite":"../assets/images/opponents-sprites/Blue.webp",
+            "teamId": [
+                18,
+                130,
+                103,
+                112,
+                59,
+                65
+            ],
+            "type": "unknown",
+            "price": 5800
+        }
+    ]
+}

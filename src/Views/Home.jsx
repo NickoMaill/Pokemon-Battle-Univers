@@ -1,6 +1,6 @@
 //MODULE IMPORT
 import { useEffect, useContext, useState } from "react";
-import { Context } from "../Context/NewsContext";
+import { Context } from "../Context/AppContext";
 import { customStyles } from "../Utils/customStyles";
 
 //COMPONENTS IMPORT
