@@ -72,7 +72,7 @@ export default function MineCard(props) {
                 contentLabel="Example Modal"
             >
 
-                <Card/>
+                <Card />
 
             </Modal>
 

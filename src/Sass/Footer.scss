@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'Demonized';
+    src: url(../assets/Font/Demonized/Demonized.ttf);
+}
+
+.footer-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2C75B5;
+    padding: 1rem;
+
+}
+
+.title-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty-div{
+    width: 23rem;
+}
+
+.header-bottom{
+    margin-top: 0rem;
+}
+
+.title-header{
+    font-family: 'Demonized';
+    font-weight: 100;
+    color: #FDCC02;
+}
+
+.logo {
+    width: 14rem;
+    height: 5rem;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-logo{
+    width: 5rem;
+}

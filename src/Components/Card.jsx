@@ -57,7 +57,6 @@ export default function Card() {
 
         <div className={`poke-card-${stateContext.type}`}>
 
-
             <div className="title-div">
 
                 <h2>{stateContext.currentPokemon.name}</h2>
@@ -92,7 +91,6 @@ export default function Card() {
                     src={require("../assets/images/Header-icon/pokeball.webp")} 
                     alt="add to your team button" />
                 </button>
-
 
             </div>
 
@@ -153,7 +151,6 @@ export default function Card() {
 
                 </div>
 
-
                 <div>
                     <h4 className="title-stats">Types</h4>
                     <ul className="type-ul">
@@ -163,13 +160,11 @@ export default function Card() {
                     </ul>
                 </div>
 
-
                 <figure>
                     <audio controls src={require(`../assets/audio/${stateContext.currentPokemon.id}.ogg`)}><code>audio</code></audio>
 
                 </figure>
             </div>
-
 
         </div>
 
