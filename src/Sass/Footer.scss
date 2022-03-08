@@ -8,7 +8,11 @@
     justify-content: space-between;
     align-items: center;
     background-color: #2C75B5;
-    padding: 1rem;
+    padding: 1rem 1rem 0rem 1rem;
+    span, a{
+        text-decoration: none;
+        color: #f2f2f2;
+    }
 
 }
 

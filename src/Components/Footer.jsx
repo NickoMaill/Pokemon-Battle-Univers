@@ -1,10 +1,6 @@
 import "../Sass/Footer.scss"
 import dayjs from "dayjs";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faB } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faB)
+import { SiGithub } from "react-icons/si";
 
 export default function Footer() {
 
@@ -30,8 +26,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <span>Check the repo on gitHub</span>
-            <img src={require("../assets/images/github-brands.svg")} alt="github"/>
+            <span>
+              <a
+                href="https://github.com/NickoMaill/Pokemon-Battle-Univers"
+                target="_blank"
+                rel="noreferrer">
+                Check the repo on GitHub <SiGithub />
+              </a>
+            </span>
           </div>
 
         </div>
