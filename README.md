@@ -9,7 +9,7 @@ Pour faire fonctionner cette application, vous aurez besoin de votre navigateur 
 
 ### Installation
 
-À la racine du projet, dans votre terminal, lancer la commande ``$ npm start``.
+À la racine du projet, dans votre terminal, lancer la commande ``$ npm i``.
 
 ## Démarrage
 

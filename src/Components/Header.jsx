@@ -42,7 +42,7 @@ export default function Header() {
                         <p className="link">Ton équipe</p>
                     </Link>
 
-                    <Link className="link-div" to="/your-team">
+                    <Link className="link-div" to="/pokeshop">
                         <i><img alt="Team icon" className="navbar-icon pokeball" src={require("../assets/images/Header-icon/shop.webp")} /></i>
                         <p className="link">PokéShop</p>
                     </Link>

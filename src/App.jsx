@@ -13,6 +13,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
 import "./App.css"
+import PokeShop from "./Views/PokeShop";
 
 //Create context
 
@@ -22,7 +23,7 @@ export const UserContext = createContext(false);
 
 export default function App() {
 
-  //declare state
+  //declare state 
 
   const [isLogged, setIsLogged] = useState(false);
   const [userName, setUserName] = useState("UserName");
@@ -99,6 +100,7 @@ export default function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/pokedex" element={<Pokedex />} />
           <Route exact path="/your-team" element={<Team />} />
+          <Route exact path="/pokeshop" element={<PokeShop />} />
           <Route exact path="/battle" element={<Battle />} />
           <Route exact path="/login" element={<Login />} />
         </Routes>
