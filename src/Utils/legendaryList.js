@@ -1,4 +1,4 @@
-export const legendaryPokemons = [
+const legendaryPokemons = [
     144,
     145,
     146,
@@ -41,3 +41,5 @@ export const legendaryPokemons = [
     717,
     718,
 ];
+
+exports.module = legendaryPokemons

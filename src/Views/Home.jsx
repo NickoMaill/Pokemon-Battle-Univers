@@ -16,7 +16,6 @@ import fetchStatsPokemon from "../Utils/fetchStatsPokemon";
 import fetchNews from "../Utils/fetchNews";
 
 //LIBRARY IMPORT
-import dayjs from "dayjs";
 import Modal from 'react-modal';
 
 //FILES IMPORT
@@ -50,27 +49,27 @@ export default function Home() {
     }
 
     //Display STATS Card
-    const displayStats = (e) => {
-        fetchStatsPokemon(e.target.value)
-            .then(res => {
+    // const displayStats = (e) => {
+    //     fetchStatsPokemon(e.target.value)
+    //         .then(res => {
 
-                fetchStatsPokemon(res.location_area_encounters)
-                    .then(res => {
-                        stateContext.setArea(res)
-                    })
-                    .catch((err) => {
-                        console.error("Error while charging a Location area", err);
-                    });
+    //             fetchStatsPokemon(res.location_area_encounters)
+    //                 .then(res => {
+    //                     stateContext.setArea(res)
+    //                 })
+    //                 .catch((err) => {
+    //                     console.error("Error while charging a Location area", err);
+    //                 });
 
-                stateContext.setCurrentPokemon(res)
-                stateContext.setType(res.types[0].type.name)
-                openModal()
+    //             stateContext.setCurrentPokemon(res)
+    //             stateContext.setType(res.types[0].type.name)
+    //             openModal()
 
-            })
-            .catch((err) => {
-                console.error("Error while charging a Pokemon", err);
-            });
-    };
+    //         })
+    //         .catch((err) => {
+    //             console.error("Error while charging a Pokemon", err);
+    //         });
+    // };
 
     //On load Page
 
@@ -97,9 +96,9 @@ export default function Home() {
         // function to determinate the pokemon of the week, functional only on monday
 
         function IdsWeek() {
-            const day = dayjs().format("dddd")
+            const today = new Date().getUTCDay();
 
-            if (day === "Monday" || stateContext.weeklyPokemon.length === 0) {
+            if (today === 0 || stateContext.weeklyPokemon.length === 0) {
                 const res = randomId(3, 721)
                 stateContext.setWeeklyPokemon(res)
                 localStorage.setItem('weekPokemon', JSON.stringify(res))
@@ -162,7 +161,6 @@ export default function Home() {
                                         key={i}
                                         keyId={stateContext.weeklyPokemon[i] - 1}
                                         id={idFormat(stateContext.weeklyPokemon[i])}
-                                        onClick={displayStats}
                                     />
 
                                 );
@@ -184,8 +182,7 @@ export default function Home() {
                             contentLabel="Example Modal"
                         >
 
-                            <Card
-                            />
+                            <Card/>
 
                         </Modal>
 

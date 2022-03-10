@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
 import { Context } from "../Context/AppContext";
 import { customStyles } from "../Utils/customStyles";
-import Card from "./Card";
+
+import Card from "../Components/Card";
 import Modal from 'react-modal';
 import fetchStatsPokemon from "../Utils/fetchStatsPokemon";
+
 import "../Sass/MinCard.scss"
 
 export default function MineCard(props) {
@@ -27,14 +29,7 @@ export default function MineCard(props) {
         setLoadClass("loading")
         fetchStatsPokemon(e.target.value)
             .then(res => {
-
-                fetchStatsPokemon(res.location_area_encounters)
-                    .then(res => {
-                        stateContext.setArea(res)
-                    })
-
                 stateContext.setCurrentPokemon(res)
-                stateContext.setType(res.types[0].type.name)
                 setIsLoaded(true)
                 setLoadClass("")
                 openModal()

@@ -30,7 +30,6 @@ export default function App() {
   // const [userDataBase, setUserDataBase] = useState(JSON.parse(localStorage.getItem("userAccount")) || [])
   const [gameNews, setGameNews] = useState([]);
   const [pokemon, setPokemon] = useState({});
-  const [type, setType] = useState("");
   const [id, setId] = useState(null);
   const [locationArea, setArea] = useState([]);
   const [weeklyPokemon, setWeeklyPokemon] = useState(JSON.parse(localStorage.getItem("weekPokemon")) || []);
@@ -74,9 +73,6 @@ export default function App() {
 
     pokeDollard,
     setPokeDollard,
-
-    type,
-    setType,
 
     id,
     setId,

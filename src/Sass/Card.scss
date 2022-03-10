@@ -6,7 +6,17 @@
     border-color: $color;
     background-color: $backColor;
     width: 40rem;
-    height: 40rem;
+    max-height: 500px;
+}
+
+@mixin spaceFlex($justify){
+    display: flex;
+    justify-content: $justify;
+}
+
+@mixin directionFlex($direction) {
+    display: flex;
+    flex-direction: $direction;
 }
 
 .poke-card-ground {
@@ -83,8 +93,7 @@
 
 .title-div{
     background-color: #fff;
-    display: flex;
-    flex-direction: column;
+    @include directionFlex(column);
     align-items: center;
     padding: 1.2rem;
     border: solid rgba(0, 0, 0, 0.536);
@@ -92,8 +101,7 @@
 
 .sprites-div{
     width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+    @include spaceFlex(space-evenly);
 }
 
 .default-sprites{
@@ -128,8 +136,7 @@
 .type-ul {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content:space-around ;
+    @include spaceFlex(space-around);
     
     li {
         list-style: none;
@@ -141,13 +148,11 @@
 }
 
 .stats-container{
-    display: flex;
-    justify-content: space-around;
+    @include spaceFlex(space-around);
 }
 
 .stats-list-div{
-    display: flex;
-    justify-content: center;
+    @include spaceFlex(center)
 }
 
 .stats-list{
@@ -162,8 +167,7 @@
 }
 
 .area-container{
-    display: flex;
-    flex-direction: column;
+    @include directionFlex(column);
     align-items: center;
 
 }
@@ -175,11 +179,8 @@
 }
 
 .area-list{
-    // list-style: none;
-    display: flex;
+    @include spaceFlex(space-around);
     flex-wrap: wrap;
-    justify-content: space-around;
-
     li{
         margin-bottom: 5px;
         margin-left: 3rem;
@@ -201,7 +202,6 @@ h4{
 }
 
 figure{
-    display: flex;
-    justify-content: center;
+    @include spaceFlex(center);
     margin: 1rem;
 }

@@ -55,7 +55,7 @@ export default function Card() {
 
     return (
 
-        <div className={`poke-card-${stateContext.type}`}>
+        <div className={`poke-card-${stateContext.currentPokemon.types[0].type.name}`}>
 
             <div className="title-div">
 
@@ -129,24 +129,6 @@ export default function Card() {
                             </ul>
                         </div>
 
-                    </div>
-
-                </div>
-
-                <div className="area-container">
-                    <h4 className="title-stats">Location Area</h4>
-
-                    <div className="area-list-div">
-                        <ul className="area-list">
-                            {stateContext.locationArea.map((area, i) => {
-                                ;
-                                return (
-                                    <li key={i}>{area.location_area.name} : {area.version_details[0].max_chance} %</li>
-                                )
-
-                            }
-                            )}
-                        </ul>
                     </div>
 
                 </div>

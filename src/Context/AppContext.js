@@ -11,7 +11,6 @@ export const Context = createContext({
     team: [],
     pokeballStock:10,
     pokeDollard: 2000,
-    type: "",
     id: null,
     modalIsOpen: false,
 });
