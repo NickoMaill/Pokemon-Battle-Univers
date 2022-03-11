@@ -1,15 +1,31 @@
-import { useContext, useState } from "react";
+//MODULE IMPORT
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../Context/AppContext";
-import idFormat from "../Utils/idFormat";
-import "../Sass/Card.scss"
 import { toast, ToastContainer } from "react-toastify";
+
+//FUNCTION IMPORT
+import idFormat from "../Utils/idFormat";
+import fetchStatsPokemon from "../Utils/fetchStatsPokemon"
+
+//STYLE IMPORT
+import "../Sass/Card.scss"
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Card() {
     const stateContext = useContext(Context);
 
     const [_teamClass, setTeamClass] = useState("no-added");
-    // const notify = () => toast("Wow so easy !");
+    const [isLoadded, setIsLoaded] = useState(false)
+
+    useEffect(() => {
+        fetchStatsPokemon()
+        .then(res => {
+                stateContext.setCurrentPokemon(res);
+            })
+            .catch((err) => {
+                console.error("Error while charging a Pokemon", err);
+            })
+    }, [])
 
     const catchEmAll = () => {
 
@@ -18,15 +34,12 @@ export default function Card() {
             stateContext.setTeam(tempTeam.splice(tempTeam.indexOf(stateContext.currentPokemon.id), 1));
             stateContext.setTeam(tempTeam);
             setTeamClass("no-added");
-            // toast.info(`Raté il vous reste ${stateContext.pokeballStock} pokeball`);
-            setTimeout(() =>
-                stateContext.setIsOpen(false), 500
-            )
-
+            toast.warn(`Raté... il vous reste ${stateContext.pokeballStock} pokeball`);
         } else {
 
             if (stateContext.pokeballStock === 0) {
                 console.warn("plus de pokeball");
+                toast.error("Plus de Pokeball, retournez au shop !")
                 return
 
             } else if (stateContext.team.length === 6) {
@@ -47,7 +60,7 @@ export default function Card() {
                     stateContext.setTeam(prevPoke => [...prevPoke, stateContext.currentPokemon.id])
                     setTeamClass("");
                     stateContext.setPokeballStock(stateContext.pokeballStock - 1)
-                    toast.info("Wow so easy !")
+                    toast.done("Pokemon capturé !")
 
                 }
             }
@@ -55,9 +68,6 @@ export default function Card() {
         }
 
     }
-
-
-
 
     return (
 

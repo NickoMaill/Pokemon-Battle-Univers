@@ -14,10 +14,7 @@ import Footer from "./Components/Footer";
 
 import "./App.css"
 import PokeShop from "./Views/PokeShop";
-
-//Create context
-
-export const UserContext = createContext(false);
+import Card from "./Views/Card";
 
 //Main App function
 
@@ -37,7 +34,6 @@ export default function App() {
   const [pokeballStock, setPokeballStock] = useState(10)
   const [pokeDollard, setPokeDollard] = useState(2000)
   const [currentPokemon, setCurrentPokemon] = useState({});
-  const [modalIsOpen, setIsOpen] = useState(false);
 
 
 
@@ -76,10 +72,6 @@ export default function App() {
 
     id,
     setId,
-
-    modalIsOpen,
-    setIsOpen,
-
   };
 
   //App routing
@@ -95,6 +87,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/pokedex" element={<Pokedex />} />
+          <Route exact path="/pokemon-stats" element={<Card />} />
           <Route exact path="/your-team" element={<Team />} />
           <Route exact path="/pokeshop" element={<PokeShop />} />
           <Route exact path="/battle" element={<Battle />} />
