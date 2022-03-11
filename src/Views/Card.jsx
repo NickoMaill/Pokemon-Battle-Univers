@@ -10,12 +10,15 @@ import fetchStatsPokemon from "../Utils/fetchStatsPokemon"
 //STYLE IMPORT
 import "../Sass/Card.scss"
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 export default function Card() {
     const stateContext = useContext(Context);
 
     const [_teamClass, setTeamClass] = useState("no-added");
     const [isLoaded, setIsLoaded] = useState(false)
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         fetchStatsPokemon(stateContext.currentId)
@@ -36,26 +39,29 @@ export default function Card() {
             stateContext.setTeam(tempTeam.splice(tempTeam.indexOf(stateContext.currentPokemon.id), 1));
             stateContext.setTeam(tempTeam);
             setTeamClass("no-added");
-            toast.warn(`Raté... il vous reste ${stateContext.pokeballStock} pokeball`);
+            setTimeout(() => 
+                navigate('/your-team'), 500
+            )
         } else {
-
+            
             if (stateContext.pokeballStock === 0) {
                 console.warn("plus de pokeball");
                 toast.error("Plus de Pokeball, retournez au shop !")
                 return
-
+                
             } else if (stateContext.team.length === 6) {
                 console.warn("limit to 6 pokemon");
                 return
-
+                
             } else {
-
+                
                 const catchPokemon = Math.random() < 0.3
                 console.log(catchPokemon);
-
+                
                 if (catchPokemon === false) {
                     console.warn("oups")
                     stateContext.setPokeballStock(stateContext.pokeballStock - 1)
+                    toast.warn(`Raté... il vous reste ${stateContext.pokeballStock} pokeball`);
                     return
 
                 } else {
