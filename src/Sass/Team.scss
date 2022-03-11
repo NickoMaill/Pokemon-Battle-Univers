@@ -1,0 +1,35 @@
+@mixin flexCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+}
+
+.team-content {
+    background-color: #fff;
+    width: 85%;
+    @include flexCenter();
+    align-items: center;
+}
+
+.team-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #fff;
+}
+
+.no-team {
+    @include flexCenter();
+    h2 {
+        margin-block: 3rem;
+    }
+}
+
+.sad-pikachu {
+    width: 15rem;
+}

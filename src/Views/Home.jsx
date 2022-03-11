@@ -1,26 +1,16 @@
 //MODULE IMPORT
 import { useEffect, useContext, useState } from "react";
 import { Context } from "../Context/AppContext";
-import { customStyles } from "../Utils/customStyles";
 
 //COMPONENTS IMPORT
 import NewsCard from "../Components/NewsCard";
 import MineCard from "../Components/MinCard";
-import Card from "../Components/Card";
 
 //FUNCTION IMPORT
 import idFormat from "../Utils/idFormat";
 import randomId from "../Utils/randomId";
 import fetchListPokemon from "../Utils/fetchListPokemon";
-import fetchStatsPokemon from "../Utils/fetchStatsPokemon";
 import fetchNews from "../Utils/fetchNews";
-
-//LIBRARY IMPORT
-import Modal from 'react-modal';
-
-//FILES IMPORT
-// import offlineApi from "../data/offlineApi.json" //temporary, for save some requests, limited to 2500 per month.....(freeApi)
-// import opponents from "../data/opponents.json"
 
 //STYLE IMPORT
 import "../Sass/Home.scss";
@@ -34,42 +24,7 @@ export default function Home() {
     const stateContext = useContext(Context);
 
     const [newsIsLoaded, setNewsIsLoaded] = useState(false);
-    const [weeklyLoaded, setWeeklyLoaded] = useState(false)
-
-    //MODAL Function
-
-    Modal.setAppElement("#root");
-
-    function openModal() {
-        stateContext.setIsOpen(true);
-    }
-
-    function closeModal() {
-        stateContext.setIsOpen(false);
-    }
-
-    //Display STATS Card
-    // const displayStats = (e) => {
-    //     fetchStatsPokemon(e.target.value)
-    //         .then(res => {
-
-    //             fetchStatsPokemon(res.location_area_encounters)
-    //                 .then(res => {
-    //                     stateContext.setArea(res)
-    //                 })
-    //                 .catch((err) => {
-    //                     console.error("Error while charging a Location area", err);
-    //                 });
-
-    //             stateContext.setCurrentPokemon(res)
-    //             stateContext.setType(res.types[0].type.name)
-    //             openModal()
-
-    //         })
-    //         .catch((err) => {
-    //             console.error("Error while charging a Pokemon", err);
-    //         });
-    // };
+    const [weeklyLoaded, setWeeklyLoaded] = useState(false);
 
     //On load Page
 
@@ -146,11 +101,11 @@ export default function Home() {
 
                 </div>
 
-                <div>
+                <div className="weekly-pokemon-container">
 
                     <h2>Pokemon of the Weeks</h2>
 
-                    <div className="weekly-pokemon">
+                    <div className="weekly-pokemon-content">
 
                         {weeklyLoaded ? stateContext.weeklyPokemon.map((week, i) => {
 
@@ -174,17 +129,6 @@ export default function Home() {
                             </div>
 
                         }
-
-                        <Modal
-                            isOpen={stateContext.modalIsOpen}
-                            onRequestClose={closeModal}
-                            style={customStyles}
-                            contentLabel="Example Modal"
-                        >
-
-                            <Card/>
-
-                        </Modal>
 
                     </div>
 

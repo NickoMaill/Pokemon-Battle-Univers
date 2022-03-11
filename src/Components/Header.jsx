@@ -9,13 +9,13 @@ export default function Header() {
             <div className="nav-div">
 
                 <div className="header-top">
-
-                    <UserResume />
+                    <div></div>
                     <div className="title-container">
                         <img alt="Pokemon Logo" className="logo" src={require('../assets/images/Header-icon/pokemon-logo.webp')} />
                         <h1 className="title-header">Battle Universe</h1>
 
                     </div>
+                    <UserResume />
 
 
                 </div>

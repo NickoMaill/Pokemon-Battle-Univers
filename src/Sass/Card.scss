@@ -6,7 +6,7 @@
     border-color: $color;
     background-color: $backColor;
     width: 40rem;
-    max-height: 500px;
+    margin: 1rem
 }
 
 @mixin spaceFlex($justify){
@@ -17,6 +17,13 @@
 @mixin directionFlex($direction) {
     display: flex;
     flex-direction: $direction;
+}
+
+.Card-view{
+    @include spaceFlex(center);
+    align-self: center;
+    background-color: #fff;
+    width: 85%;
 }
 
 .poke-card-ground {
@@ -92,8 +99,8 @@
 }
 
 .title-div{
-    background-color: #fff;
     @include directionFlex(column);
+    background-color: #f2f2f2;
     align-items: center;
     padding: 1.2rem;
     border: solid rgba(0, 0, 0, 0.536);
@@ -128,7 +135,7 @@
     filter: grayscale(1);
 }
 
-.card-content{
+.poke-card{
     overflow-y: scroll;
     height: 30rem;
 }
@@ -149,10 +156,12 @@
 
 .stats-container{
     @include spaceFlex(space-around);
+    margin-block: 1rem;
 }
 
 .stats-list-div{
-    @include spaceFlex(center)
+    @include spaceFlex(center);
+    margin-block: 1rem;
 }
 
 .stats-list{
@@ -166,26 +175,10 @@
     }
 }
 
-.area-container{
-    @include directionFlex(column);
-    align-items: center;
-
-}
-
-.area-list-div{
-    width: 80%;
-    overflow-y: scroll;
-    height: 5rem;
-}
-
-.area-list{
-    @include spaceFlex(space-around);
-    flex-wrap: wrap;
-    li{
-        margin-bottom: 5px;
-        margin-left: 3rem;
-        margin-right: 3rem;
-    }
+.wh-specs{
+    display: flex;
+    justify-content: space-around;
+    margin-block: 1rem;
 }
 
 .types-img {

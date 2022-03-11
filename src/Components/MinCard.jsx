@@ -1,43 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../Context/AppContext";
-import { customStyles } from "../Utils/customStyles";
-
-import Card from "../Components/Card";
-import Modal from 'react-modal';
-import fetchStatsPokemon from "../Utils/fetchStatsPokemon";
 
 import "../Sass/MinCard.scss"
 
 export default function MineCard(props) {
     const stateContext = useContext(Context);
+    const navigate = useNavigate()
 
-    const [isLoaded, setIsLoaded] = useState(false)
-    const [loadClass, setLoadClass] = useState("")
-
-    Modal.setAppElement("#root");
-
-    function openModal() {
-        stateContext.setIsOpen(true);
-    }
-
-    function closeModal() {
-        stateContext.setIsOpen(false);
-        setIsLoaded(false)
-    }
-
-    const displayStats = (e) => {
-        setLoadClass("loading")
-        fetchStatsPokemon(e.target.value)
-            .then(res => {
-                stateContext.setCurrentPokemon(res)
-                setIsLoaded(true)
-                setLoadClass("")
-                openModal()
-
-            })
-            .catch((err) => {
-                console.error("Error while charging a Pokemon", err);
-            })
+    const catchId = (e) => {
+        stateContext.setCurrentId(parseInt(e.target.value) + 1)
+        console.log(parseInt(e.target.value) + 1);
+        navigate('/pokemon-stats');
     }
 
     return (
@@ -52,25 +26,13 @@ export default function MineCard(props) {
             />
             <span>id n° {props.id}</span>
             <button
-                onClick={displayStats}
-                value={stateContext.pokemon[props.keyId].url}
-                className={`pokeButton ${loadClass}`}>
-
+                value={props.keyId}
+                className="pokeButton"
+                onClick={(e) => catchId(e)}
+            >
                 Show Stats
-
             </button>
 
-            <Modal
-                isOpen={stateContext.modalIsOpen}
-                onRequestClose={closeModal}
-                style={customStyles}
-                contentLabel="Example Modal"
-            >
-
-                <Card />
-
-            </Modal>
-
         </div>
-    )
-}
+    );
+};

@@ -13,4 +13,5 @@ export const Context = createContext({
     pokeDollard: 2000,
     id: null,
     modalIsOpen: false,
+    currentId: null,
 });
