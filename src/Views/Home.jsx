@@ -146,11 +146,11 @@ export default function Home() {
 
                 </div>
 
-                <div>
+                <div className="weekly-pokemon-container">
 
                     <h2>Pokemon of the Weeks</h2>
 
-                    <div className="weekly-pokemon">
+                    <div className="weekly-pokemon-content">
 
                         {weeklyLoaded ? stateContext.weeklyPokemon.map((week, i) => {
 

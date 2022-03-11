@@ -3,7 +3,7 @@ import { Context } from "../Context/AppContext";
 import idFormat from "../Utils/idFormat";
 import MineCard from "../Components/MinCard"
 import fetchListPokemon from "../Utils/fetchListPokemon";
-import "../Sass/Pokedex.scss";
+import "../Sass/Team.scss";
 
 
 export default function Team() {
@@ -27,16 +27,23 @@ export default function Team() {
     }, [])
 
     return (
-        <div className="pokedex-container">
+        <div className="team-container">
 
-            <div className="pokedex-content">
+            <div className="team-content">
 
                 <h1>Your Pokemon team</h1>
 
-                <div className="pokedex-wrapper">
+                <div className="team-wrapper">
 
                     {stateContext.team.length === 0 ? (
-                        <h2>Vous n'avez pas encore de favoris</h2>
+                        <div className="no-team">
+                            <h2>Vous n'avez pas de Pokemon ...</h2>
+                            <img
+                                className="sad-pikachu"
+                                src={require('../assets/images/sad-pikachu.webp')}
+                                alt="Sad Pikachu"
+                            />
+                        </div>
 
                     )
                         :
@@ -58,8 +65,8 @@ export default function Team() {
                             :
 
                             <div className="load-div">
-                                <img className="load" src={require("../assets/images/download.png")} 
-                                alt="loading-spinner" />
+                                <img className="load" src={require("../assets/images/download.png")}
+                                    alt="loading-spinner" />
                             </div>
 
                     }

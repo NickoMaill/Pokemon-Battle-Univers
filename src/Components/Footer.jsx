@@ -1,5 +1,4 @@
 import "../Sass/Footer.scss"
-import dayjs from "dayjs";
 import { SiGithub } from "react-icons/si";
 
 export default function Footer() {
@@ -13,7 +12,7 @@ export default function Footer() {
         <div className="footer-div">
 
           <div>
-            <span>&#9400; Developped by Nicolas Maillols {dayjs().format("YYYY")}</span>
+            <span>&#9400; Developped by Nicolas Maillols {new Date().getFullYear()}</span>
           </div>
 
           <div className="title-container">

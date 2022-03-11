@@ -1,21 +1,19 @@
 .user-container{
     display: flex;
-    justify-content: center;
-    margin-bottom: 1rem
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
 };
 
 .user-div {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
     border-radius: 1rem;
     padding: 10px;
     background-color: #fff;
-    width: 90%;
-}
-
-.user-stock {
-    display: flex;
+    width: 30%;
 }
 
 .user-img {
@@ -26,6 +24,7 @@
 .stock-div {
     display: flex;
     margin-left: 1rem;
+    margin-block: 0.5rem;
     img {
         width: 1rem;
         margin-right: 0.5rem;

@@ -2,11 +2,14 @@ import { useContext, useState } from "react";
 import { Context } from "../Context/AppContext";
 import idFormat from "../Utils/idFormat";
 import "../Sass/Card.scss"
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Card() {
     const stateContext = useContext(Context);
 
-    const [_teamClass, setTeamClass] = useState("no-added")
+    const [_teamClass, setTeamClass] = useState("no-added");
+    // const notify = () => toast("Wow so easy !");
 
     const catchEmAll = () => {
 
@@ -15,6 +18,7 @@ export default function Card() {
             stateContext.setTeam(tempTeam.splice(tempTeam.indexOf(stateContext.currentPokemon.id), 1));
             stateContext.setTeam(tempTeam);
             setTeamClass("no-added");
+            // toast.info(`Raté il vous reste ${stateContext.pokeballStock} pokeball`);
             setTimeout(() =>
                 stateContext.setIsOpen(false), 500
             )
@@ -25,37 +29,40 @@ export default function Card() {
                 console.warn("plus de pokeball");
                 return
 
+            } else if (stateContext.team.length === 6) {
+                console.warn("limit to 6 pokemon");
+                return
+
             } else {
 
-                if (stateContext.team.length === 6) {
-                    console.warn("limit to 6 pokemon");
+                const catchPokemon = Math.random() < 0.3
+                console.log(catchPokemon);
+
+                if (catchPokemon === false) {
+                    console.warn("oups")
+                    stateContext.setPokeballStock(stateContext.pokeballStock - 1)
                     return
 
                 } else {
-                    const catchPokemon = Math.random() < 0.3
-                    console.log(catchPokemon);
+                    stateContext.setTeam(prevPoke => [...prevPoke, stateContext.currentPokemon.id])
+                    setTeamClass("");
+                    stateContext.setPokeballStock(stateContext.pokeballStock - 1)
+                    toast.info("Wow so easy !")
 
-                    if (catchPokemon === false) {
-                        console.warn("oups")
-                        stateContext.setPokeballStock(stateContext.pokeballStock - 1)
-                        return
-
-                    } else {
-                        stateContext.setTeam(prevPoke => [...prevPoke, stateContext.currentPokemon.id])
-                        setTeamClass("");
-                        stateContext.setPokeballStock(stateContext.pokeballStock - 1)
-
-                    }
                 }
-
             }
 
         }
+
     }
+
+
+
 
     return (
 
         <div className={`poke-card-${stateContext.currentPokemon.types[0].type.name}`}>
+            <ToastContainer />
 
             <div className="title-div">
 
@@ -87,9 +94,9 @@ export default function Card() {
                     onClick={catchEmAll}
                     className="team-button"
                 >
-                    <img className={`team-icon ${!stateContext.team.includes(stateContext.currentPokemon.id) && "no-added"}`} 
-                    src={require("../assets/images/Header-icon/pokeball.webp")} 
-                    alt="add to your team button" />
+                    <img className={`team-icon ${!stateContext.team.includes(stateContext.currentPokemon.id) && "no-added"}`}
+                        src={require("../assets/images/Header-icon/pokeball.webp")}
+                        alt="add to your team button" />
                 </button>
 
             </div>
@@ -137,7 +144,7 @@ export default function Card() {
                     <h4 className="title-stats">Types</h4>
                     <ul className="type-ul">
                         {stateContext.currentPokemon.types.map((types, i) => (
-                            <li key={i}><img className="types-img" src={require(`/src/assets/images/Types/${types.type.name}.webp`)}  alt={types.type.name}/></li>
+                            <li key={i}><img className="types-img" src={require(`/src/assets/images/Types/${types.type.name}.webp`)} alt={types.type.name} /></li>
                         ))}
                     </ul>
                 </div>

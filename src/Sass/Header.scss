@@ -14,10 +14,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    h1{
+        margin-bottom: 1rem;
+    }
 }
 
 .empty-div{
     width: 23rem;
+}
+
+.header-top{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 1rem;
+    
 }
 
 .header-bottom{
@@ -26,8 +36,13 @@
 
 .title-header{
     font-family: 'Demonized';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     font-weight: 100;
     color: #FDCC02;
+    width: 100%;
 }
 
 .logo {
