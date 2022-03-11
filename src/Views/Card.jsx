@@ -2,34 +2,55 @@
 import { useContext, useEffect, useState } from "react";
 import { Context } from "../Context/AppContext";
 import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { customStyles } from "../Utils/customStyles";
 
 //FUNCTION IMPORT
 import idFormat from "../Utils/idFormat";
 import fetchStatsPokemon from "../Utils/fetchStatsPokemon"
+import Modal from 'react-modal';
 
 //STYLE IMPORT
 import "../Sass/Card.scss"
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from "react-router-dom";
 
 export default function Card() {
     const stateContext = useContext(Context);
 
     const [_teamClass, setTeamClass] = useState("no-added");
     const [isLoaded, setIsLoaded] = useState(false)
+    const [modalIsOpen, setIsOpen] = useState(false);
 
     const navigate = useNavigate()
 
+    Modal.setAppElement("#root");
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+
     useEffect(() => {
-        fetchStatsPokemon(stateContext.currentId)
-            .then(res => {
-                stateContext.setCurrentPokemon(res);
-                setIsLoaded(true)
-            })
-            .catch((err) => {
-                console.error("Error while charging a Pokemon", err);
-            })
+
+        if (stateContext.currentId === null) {
+            return
+        } else {
+
+            fetchStatsPokemon(stateContext.currentId)
+                .then(res => {
+                    stateContext.setCurrentPokemon(res);
+                    setIsLoaded(true)
+                })
+                .catch((err) => {
+                    console.error("Error while charging a Pokemon", err);
+                })
             console.log(stateContext.currentId);
+        }
+
     }, [])
 
     const catchEmAll = () => {
@@ -39,36 +60,40 @@ export default function Card() {
             stateContext.setTeam(tempTeam.splice(tempTeam.indexOf(stateContext.currentPokemon.id), 1));
             stateContext.setTeam(tempTeam);
             setTeamClass("no-added");
-            setTimeout(() => 
+            setTimeout(() =>
                 navigate('/your-team'), 500
             )
         } else {
-            
+
             if (stateContext.pokeballStock === 0) {
                 console.warn("plus de pokeball");
                 toast.error("Plus de Pokeball, retournez au shop !")
                 return
-                
+
             } else if (stateContext.team.length === 6) {
                 console.warn("limit to 6 pokemon");
+                toast.warning("your team is limited ")
                 return
-                
+
             } else {
-                
+                openModal();
+                setTimeout(() => closeModal(), 1100);
                 const catchPokemon = Math.random() < 0.3
                 console.log(catchPokemon);
-                
+
                 if (catchPokemon === false) {
                     console.warn("oups")
                     stateContext.setPokeballStock(stateContext.pokeballStock - 1)
-                    toast.warn(`Raté... il vous reste ${stateContext.pokeballStock} pokeball`);
+                    setTimeout(() => 
+                    toast.warn(`Raté... il vous reste ${stateContext.pokeballStock - 1} pokeball`), 1250
+                    )
                     return
 
                 } else {
                     stateContext.setTeam(prevPoke => [...prevPoke, stateContext.currentPokemon.id])
                     setTeamClass("");
                     stateContext.setPokeballStock(stateContext.pokeballStock - 1)
-                    toast.done("Pokemon capturé !")
+                    toast.success("Pokemon capturé !")
 
                 }
             }
@@ -77,18 +102,31 @@ export default function Card() {
 
     }
 
-    if (isLoaded !== true) {
+    if (isLoaded !== true && stateContext.currentId === null) {
+        return (
+            <h1>pas de pokemon</h1>
+        );
+
+    } else if (isLoaded !== true) {
         return (
             <div className="load-div">
                 <img className="load" src={require("../assets/images/download.png")} alt="" />
             </div>
         );
-
     } else {
 
         return (
 
             <div className={`poke-card-${stateContext.currentPokemon.types[0].type.name}`}>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="Example Modal"
+                >
+                    <img src={require('../assets/images/catchGif.gif')} alt="" />
+                </Modal>
+
                 <ToastContainer />
 
                 <div className="title-div">
