@@ -14,6 +14,7 @@ import fetchListPokemon from "../Utils/fetchListPokemon";
 //STYLE IMPORT
 import "../App.css";
 import "../Sass/Pokedex.scss";
+import { Link, useNavigate } from "react-router-dom";
 
 // Main Function App
 export default function Pokedex() {
@@ -47,6 +48,7 @@ export default function Pokedex() {
                 stateContext.setPokemon(res.results)
                 setLoadClass("btn-load-next")
                 setIsLoaded(true)
+                console.log(res);
 
 
             })
@@ -72,7 +74,6 @@ export default function Pokedex() {
                                     key={i}
                                     keyId={i}
                                     id={idFormat(i + 1)}
-                                    // onClick={displayStats}
                                     fav="../assets/images/Header-icon/pokeball.webp"
                                 />
 

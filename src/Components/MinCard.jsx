@@ -1,10 +1,18 @@
 import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../Context/AppContext";
 
 import "../Sass/MinCard.scss"
 
 export default function MineCard(props) {
     const stateContext = useContext(Context);
+    const navigate = useNavigate()
+
+    const catchId = (e) => {
+        stateContext.setCurrentId(parseInt(e.target.value) + 1)
+        console.log(parseInt(e.target.value) + 1);
+        navigate('/pokemon-stats');
+    }
 
     return (
         <div className="min-card-div">
@@ -18,11 +26,11 @@ export default function MineCard(props) {
             />
             <span>id n° {props.id}</span>
             <button
-                value={stateContext.pokemon[props.keyId].url}
-                className="pokeButton">
-
+                value={props.keyId}
+                className="pokeButton"
+                onClick={(e) => catchId(e)}
+            >
                 Show Stats
-
             </button>
 
         </div>

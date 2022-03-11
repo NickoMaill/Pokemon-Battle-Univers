@@ -15,16 +15,18 @@ export default function Card() {
     const stateContext = useContext(Context);
 
     const [_teamClass, setTeamClass] = useState("no-added");
-    const [isLoadded, setIsLoaded] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        fetchStatsPokemon()
-        .then(res => {
+        fetchStatsPokemon(stateContext.currentId)
+            .then(res => {
                 stateContext.setCurrentPokemon(res);
+                setIsLoaded(true)
             })
             .catch((err) => {
                 console.error("Error while charging a Pokemon", err);
             })
+            console.log(stateContext.currentId);
     }, [])
 
     const catchEmAll = () => {
@@ -69,104 +71,114 @@ export default function Card() {
 
     }
 
-    return (
+    if (isLoaded !== true) {
+        return (
+            <div className="load-div">
+                <img className="load" src={require("../assets/images/download.png")} alt="" />
+            </div>
+        );
 
-        <div className={`poke-card-${stateContext.currentPokemon.types[0].type.name}`}>
-            <ToastContainer />
+    } else {
 
-            <div className="title-div">
+        return (
 
-                <h2>{stateContext.currentPokemon.name}</h2>
-                <p>id n° {idFormat(stateContext.currentPokemon.id)}</p>
+            <div className={`poke-card-${stateContext.currentPokemon.types[0].type.name}`}>
+                <ToastContainer />
 
-                <div className="sprites-div" >
+                <div className="title-div">
 
-                    <img
-                        className="default-sprites"
-                        src={stateContext.currentPokemon.sprites.front_default}
-                        alt={`front of ${stateContext.currentPokemon.name}`}
-                    />
-                    <img
-                        className="sprites"
-                        src={require(`../assets/images/officialSprites/${idFormat(stateContext.currentPokemon.id)}.webp`)}
-                        alt={stateContext.currentPokemon.name}
-                        title={stateContext.currentPokemon.name}
-                    />
-                    <img
-                        className="default-sprites"
-                        src={stateContext.currentPokemon.sprites.back_default}
-                        alt={`game back of ${stateContext.currentPokemon.name}`}
-                    />
+                    <h2>{stateContext.currentPokemon.name}</h2>
+                    <p>id n° {idFormat(stateContext.currentPokemon.id)}</p>
+
+                    <div className="sprites-div" >
+
+                        <img
+                            className="default-sprites"
+                            src={stateContext.currentPokemon.sprites.front_default}
+                            alt={`front of ${stateContext.currentPokemon.name}`}
+                        />
+                        <img
+                            className="sprites"
+                            src={require(`../assets/images/officialSprites/${idFormat(stateContext.currentPokemon.id)}.webp`)}
+                            alt={stateContext.currentPokemon.name}
+                            title={stateContext.currentPokemon.name}
+                        />
+                        <img
+                            className="default-sprites"
+                            src={stateContext.currentPokemon.sprites.back_default}
+                            alt={`game back of ${stateContext.currentPokemon.name}`}
+                        />
+
+                    </div>
+
+                    <button
+                        onClick={catchEmAll}
+                        className="team-button"
+                    >
+                        <img className={`team-icon ${!stateContext.team.includes(stateContext.currentPokemon.id) && "no-added"}`}
+                            src={require("../assets/images/Header-icon/pokeball.webp")}
+                            alt="add to your team button" />
+                    </button>
 
                 </div>
 
-                <button
-                    onClick={catchEmAll}
-                    className="team-button"
-                >
-                    <img className={`team-icon ${!stateContext.team.includes(stateContext.currentPokemon.id) && "no-added"}`}
-                        src={require("../assets/images/Header-icon/pokeball.webp")}
-                        alt="add to your team button" />
-                </button>
+                <div className="card-content">
 
-            </div>
+                    <h4 className="title-stats">Height : {stateContext.currentPokemon.height / 10} m</h4>
 
-            <div className="card-content">
+                    <h4 className="title-stats">Weight : {stateContext.currentPokemon.weight / 10} kg</h4>
 
-                <h4 className="title-stats">Height : {stateContext.currentPokemon.height / 10} m</h4>
+                    <div className="stats-container">
 
-                <h4 className="title-stats">Weight : {stateContext.currentPokemon.weight / 10} kg</h4>
+                        <div>
 
-                <div className="stats-container">
+                            <h4 className="title-stats">Stats</h4>
 
-                    <div>
+                            <div className="stats-list-div">
+                                <ul className="stats-list">
+                                    {stateContext.currentPokemon.stats.map((stats, i) => (
+                                        <li key={i}>{stats.stat.name} : {stats.base_stat}</li>
+                                    ))}
+                                    <li>Base experience : {stateContext.currentPokemon["base_experience"]} xp</li>
+                                </ul>
+                            </div>
 
-                        <h4 className="title-stats">Stats</h4>
+                        </div>
 
-                        <div className="stats-list-div">
-                            <ul className="stats-list">
-                                {stateContext.currentPokemon.stats.map((stats, i) => (
-                                    <li key={i}>{stats.stat.name} : {stats.base_stat}</li>
-                                ))}
-                                <li>Base experience : {stateContext.currentPokemon["base_experience"]} xp</li>
-                            </ul>
+                        <div>
+
+                            <h4 className="title-stats">Abilities</h4>
+
+                            <div className="stats-list-div">
+                                <ul className="stats-list">
+                                    {stateContext.currentPokemon.abilities.map((abilities, i) => (
+                                        <li key={i}>{abilities.ability.name}</li>
+                                    ))}
+                                </ul>
+                            </div>
+
                         </div>
 
                     </div>
 
                     <div>
-
-                        <h4 className="title-stats">Abilities</h4>
-
-                        <div className="stats-list-div">
-                            <ul className="stats-list">
-                                {stateContext.currentPokemon.abilities.map((abilities, i) => (
-                                    <li key={i}>{abilities.ability.name}</li>
-                                ))}
-                            </ul>
-                        </div>
-
+                        <h4 className="title-stats">Types</h4>
+                        <ul className="type-ul">
+                            {stateContext.currentPokemon.types.map((types, i) => (
+                                <li key={i}><img className="types-img" src={require(`/src/assets/images/Types/${types.type.name}.webp`)} alt={types.type.name} /></li>
+                            ))}
+                        </ul>
                     </div>
 
+                    <figure>
+                        <audio controls src={require(`../assets/audio/${stateContext.currentPokemon.id}.ogg`)}><code>audio</code></audio>
+
+                    </figure>
                 </div>
 
-                <div>
-                    <h4 className="title-stats">Types</h4>
-                    <ul className="type-ul">
-                        {stateContext.currentPokemon.types.map((types, i) => (
-                            <li key={i}><img className="types-img" src={require(`/src/assets/images/Types/${types.type.name}.webp`)} alt={types.type.name} /></li>
-                        ))}
-                    </ul>
-                </div>
-
-                <figure>
-                    <audio controls src={require(`../assets/audio/${stateContext.currentPokemon.id}.ogg`)}><code>audio</code></audio>
-
-                </figure>
             </div>
 
-        </div>
-
-    )
+        )
+    }
 
 }

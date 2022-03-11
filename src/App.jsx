@@ -34,6 +34,7 @@ export default function App() {
   const [pokeballStock, setPokeballStock] = useState(10)
   const [pokeDollard, setPokeDollard] = useState(2000)
   const [currentPokemon, setCurrentPokemon] = useState({});
+  const [currentId, setCurrentId] = useState(null)
 
 
 
@@ -72,6 +73,9 @@ export default function App() {
 
     id,
     setId,
+
+    currentId,
+    setCurrentId,
   };
 
   //App routing

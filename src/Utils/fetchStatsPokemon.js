@@ -1,4 +1,6 @@
-const fetchStatsPokemon = (url) => {
+const fetchStatsPokemon = (id) => {
+
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}/`
     
     return (
         fetch(url)
