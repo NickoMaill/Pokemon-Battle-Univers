@@ -16,6 +16,8 @@ import "./App.css"
 import PokeShop from "./Views/PokeShop";
 import Card from "./Views/Card";
 
+import User from "./data/userTest.json"
+
 //Main App function
 
 export default function App() {
@@ -24,7 +26,7 @@ export default function App() {
 
   const [isLogged, setIsLogged] = useState(false);
   const [userName, setUserName] = useState("UserName");
-  // const [userDataBase, setUserDataBase] = useState(JSON.parse(localStorage.getItem("userAccount")) || [])
+  const [userDataBase, setUserDataBase] = useState(User)
   const [gameNews, setGameNews] = useState([]);
   const [pokemon, setPokemon] = useState({});
   const [id, setId] = useState(null);
@@ -35,8 +37,6 @@ export default function App() {
   const [pokeDollard, setPokeDollard] = useState(2000)
   const [currentPokemon, setCurrentPokemon] = useState({});
   const [currentId, setCurrentId] = useState(null)
-
-
 
   //setting value for context
 
@@ -76,8 +76,10 @@ export default function App() {
 
     currentId,
     setCurrentId,
-  };
 
+    userDataBase,
+    setUserDataBase,
+  };
   //App routing
 
   return (

@@ -13,28 +13,28 @@ export default function UserResume() {
             <div className="user-div">
 
                 <img className="user-img" src={require("../assets/images/heUser.webp")} alt="user icon" />
-                <p><strong>{stateContext.userName}</strong></p>
+                <p><strong>{stateContext.userDataBase.userName}</strong></p>
 
                 <div className="user-stock">
 
                     <div className="stock-div">
                         <img className="info-icon" src={require("../assets/images/Header-icon/pokedex-icon-2.webp")} alt="" />
-                        <p> : {stateContext.team.length}</p>
+                        <p> : {stateContext.userDataBase.team}</p>
                     </div>
 
                     <div className="stock-div">
                         <img className="info-icon" src={require("../assets/images/Header-icon/pokeball.webp")} alt="" />
-                        <p>  x  {stateContext.pokeballStock}</p>
+                        <p>  x  {stateContext.userDataBase.pokeball}</p>
                     </div>
 
                     <div className="stock-div">
                         <img className="info-icon" src={require("../assets/images/Header-icon/potion.webp")} alt="" />
-                        <p> x </p>
+                        <p> x {stateContext.userDataBase.potion}</p>
                     </div>
 
                     <div className="stock-div">
                         <img className="info-icon" src={require("../assets/images/Header-icon/pokedollars.webp")} alt="" />
-                        <p>{stateContext.pokeDollard}₽</p>
+                        <p>{stateContext.userDataBase.pokeDollars}₽</p>
                     </div>
 
                 </div>

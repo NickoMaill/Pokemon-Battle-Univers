@@ -53,6 +53,11 @@ export default function Card() {
 
     }, [])
 
+    useEffect(() => {
+        localStorage.setItem('userTeam', JSON.stringify(stateContext.team))
+        console.log(stateContext.team);
+    }, [stateContext.team])
+
     const catchEmAll = () => {
 
         if (stateContext.team.includes(stateContext.currentPokemon.id)) {

@@ -37,11 +37,6 @@ export default function Pokedex() {
     }
 
     useEffect(() => {
-        localStorage.setItem('userTeam', JSON.stringify(stateContext.team))
-        console.log(stateContext.team);
-    }, [stateContext.team])
-
-    useEffect(() => {
 
         fetchListPokemon(limitFetch)
             .then(res => {
